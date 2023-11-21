@@ -9,6 +9,26 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    macros {
+        macro01: macro01 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(S) &kp O &kp N &kp A &kp M &kp O &kp O &kp N3 &kp G &kp U &kp R &kp U>;
+            label = "MACRO01";
+        };
+
+        macro10: macro10 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL &kp LEFT_GUI &kp Q>,
+                <&macro_release>;
+
+            label = "MACRO10";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -35,10 +55,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB     &kp N1        &kp NUMBER_7  &kp NUMBER_8   &kp NUMBER_9   &kp EQUAL                 &kp MINUS  &kp UNDERSCORE  &kp UP      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
-&caps_word  &kp PERIOD    &kp NUMBER_4  &kp N5         &kp NUMBER_6   &kp ASTERISK              &kp SLASH  &kp LEFT        &kp DOWN    &kp RIGHT             &kp BACKSLASH          &kp PIPE
-&kp LSHFT   &kp NUMBER_0  &kp N1        &kp NUMBER_2   &kp NUMBER_3   &kp EXCLAMATION           &kp AT     &kp HASH        &kp DOLLAR  &kp PERCENT           &kp CARET              &kp AMPERSAND
-                                        &kp RIGHT_ALT  &kp RIGHT_GUI  &mt LEFT_CONTROL SPACE    &kp SPACE  &trans          &mo 3
+&kp TAB          &kp N1        &kp NUMBER_7  &kp NUMBER_8   &kp NUMBER_9   &kp EQUAL                 &kp MINUS  &kp UNDERSCORE  &kp UP      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
+&caps_word       &kp PERIOD    &kp NUMBER_4  &kp N5         &kp NUMBER_6   &kp ASTERISK              &kp SLASH  &kp LEFT        &kp DOWN    &kp RIGHT             &kp BACKSLASH          &kp PIPE
+&mt LSHFT ENTER  &kp NUMBER_0  &kp N1        &kp NUMBER_2   &kp NUMBER_3   &kp EXCLAMATION           &kp AT     &kp HASH        &kp DOLLAR  &kp PERCENT           &kp CARET              &kp AMPERSAND
+                                             &kp RIGHT_ALT  &kp RIGHT_GUI  &mt LEFT_CONTROL SPACE    &kp SPACE  &trans          &mo 3
             >;
         };
 
@@ -50,16 +70,16 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp ESCAPE        &kp F1  &kp F2   &kp F3    &kp F4        &kp HOME      &kp END    &kp AMPS    &kp KP_MULTIPLY  &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp BSPC
-&kp DELETE        &kp F5  &kp F6   &kp F7    &kp F8        &kp INSERT    &kp PG_UP  &kp EQUAL   &kp LBKT         &kp LS(LEFT_BRACE)  &kp RIGHT_BRACE    &kp GRAVE
-&kp LEFT_CONTROL  &kp F9  &kp F10  &kp F11   &kp F12       &kp DEL       &kp PG_DN  &kp LC(UP)  &kp LC(LEFT)     &kp LC(RIGHT)       &kp LC(DOWN)       &kp ENTER
-                                   &kp RALT  &kp LEFT_GUI  &kp SPACE     &kp SPACE  &mo 3       &trans
+&kp ESCAPE        &kp F1  &kp F2   &kp F3    &kp F4        &kp HOME                  &kp END    &kp AMPS    &kp KP_MULTIPLY  &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp BSPC
+&kp DELETE        &kp F5  &kp F6   &kp F7    &kp F8        &kp INSERT                &kp PG_UP  &kp EQUAL   &kp LBKT         &kp LS(LEFT_BRACE)  &kp RIGHT_BRACE    &kp GRAVE
+&kp LEFT_CONTROL  &kp F9  &kp F10  &kp F11   &kp F12       &kp DEL                   &kp PG_DN  &kp LC(UP)  &kp LC(LEFT)     &kp LC(RIGHT)       &kp LC(DOWN)       &kp ENTER
+                                   &kp RALT  &kp LEFT_GUI  &mt LEFT_CONTROL SPACE    &kp SPACE  &mo 3       &trans
             >;
         };
 
         layer_3 {
             bindings = <
-&trans      &trans        &trans        &trans          &trans        &trans          &trans  &trans  &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans
+&trans      &macro01      &trans        &trans          &trans        &trans          &trans  &trans  &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &macro10
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans      &trans             &trans           &trans
 &trans      &trans        &trans        &kp LS(LG(N5))  &trans        &trans          &trans  &trans  &trans      &trans             &trans           &trans
                                         &trans          &trans        &trans          &trans  &trans  &trans
