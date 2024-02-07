@@ -76,7 +76,7 @@
 &none           &kp F1          &kp F2                &kp F3          &kp F4   &kp F5              &kp PG_UP   &kp HOME    &kp UP        &kp END        &kp LC(RA(DEL))    &kp DELETE
 &kp ESC         &kp F6          &kp F7                &kp F8          &kp F9   &kp F10             &kp PG_DN   &kp LEFT    &kp DOWN      &kp RIGHT      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
 &kp LEFT_SHIFT  &kp LS(LG(N2))  &kp LS(LG(NUMBER_4))  &kp LS(LG(N5))  &kp F11  &kp F12             &kp INSERT  &kp LC(UP)  &kp LC(LEFT)  &kp LC(RIGHT)  &kp LC(DOWN)       &kp ENTER
-                                                      &kp LEFT_GUI    &mo 3    &kp LEFT_CONTROL    &trans      &trans      &kp LEFT_ALT
+                                                      &kp LEFT_GUI    &mo 3    &kp LEFT_CONTROL    &trans      &trans      &tog 1
             >;
         };
 
