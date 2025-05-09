@@ -30,6 +30,13 @@
             bindings = <&kp LS(G) &kp A &kp G &kp U &kp R &kp I &kp N1 &kp N8 &kp N1 &kp N2 &kp POUND>;
             label = "MACRO03";
         };
+
+        macro04: macro3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(G) &kp A &kp R &kp U &kp R &kp I &kp N1 &kp N7 &kp N7 &kp N6 &kp EXCL &kp EXCL>;
+            label = "MACRO3";
+        };
     };
 
     keymap {
@@ -82,7 +89,7 @@
 
         layer_3 {
             bindings = <
-&bt BT_CLR  &macro01      &macro02      &macro03      &none         &none           &none   &none  &none  &none  &none  &bt BT_CLR_ALL
+&bt BT_CLR  &macro01      &macro02      &macro04      &none         &none           &none   &none  &none  &none  &none  &bt BT_CLR_ALL
 &none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none   &none  &none  &none  &none  &none
 &none       &none         &none         &none         &none         &none           &none   &none  &none  &none  &none  &none
                                         &none         &none         &trans          &trans  &none  &none
